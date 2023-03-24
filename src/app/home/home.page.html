@@ -1,7 +1,15 @@
 <ion-content [fullscreen]="true">
+
   <div id="container">
+
+    <div *ngFor="let item of ingredients_arr;" style="display:inline;">
+      <ion-badge color="{{ item.color }}">
+        <ion-text>{{ item.ingredient_name }}</ion-text>
+      </ion-badge>
+    </div>
+
     <div class="form">
-      <ion-list>
+      <ion-list fill="outline">
         <ion-item padding>
           <ion-label position="floating">Enter Ingredients</ion-label>
           <ion-input placeholder="e.g: eggs, tomatoes, cucumber, salt (with comma separated)"
@@ -16,5 +24,12 @@
         Clear
       </ion-button>
     </div>
+
+    <br>
+
+    <div *ngFor="let recipe of recipes;">
+      <ion-text>{{ recipe.title ?? "-" }}</ion-text>
+    </div>
+
   </div>
 </ion-content>
